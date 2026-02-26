@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		051CFE6C8E072F0650576E23 /* UsageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1667981325DA88DD825890FE /* UsageViewModel.swift */; };
+		26CD93BF4429BE193B48D20F /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE327A686683DA41B6C6805 /* PopoverView.swift */; };
 		303FCEB3EE61F906708C4071 /* UsageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BEA249FF73F8B054DD8096 /* UsageModel.swift */; };
 		53AFDF84B8831E3C24AEEE91 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A626A832214BB9A4C49B0 /* KeychainService.swift */; };
 		54A627C92B4E922F5ABE9844 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E4CF57898A781A23DF4E1 /* KeychainServiceTests.swift */; };
 		591D10D6C7921D138EEBA296 /* MenuBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC616FC81286148F1C8E361 /* MenuBarIcon.swift */; };
+		5A66905DFD37EE54C1301953 /* UsageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24933F57EA1F9F7662BB352 /* UsageCardView.swift */; };
 		65DC70695F213FE3C8ADA37B /* UsageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D7ADADAAC93C7CE02551CC /* UsageServiceTests.swift */; };
 		7BF8D1E82036E5E1AED75751 /* UsageModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAB7F07906B43AC96377866 /* UsageModelTests.swift */; };
 		A63AC7E671F9BB77428F9623 /* CCSEATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D122CBC644AD8D4119A35CA0 /* CCSEATests.swift */; };
@@ -38,12 +40,14 @@
 		412A626A832214BB9A4C49B0 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		93BEA249FF73F8B054DD8096 /* UsageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageModel.swift; sourceTree = "<group>"; };
 		981E00EEDD176DE87D9D8257 /* CCSEA.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CCSEA.entitlements; sourceTree = "<group>"; };
+		9AE327A686683DA41B6C6805 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		9FC7365E8F7F561B45540088 /* UsageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageService.swift; sourceTree = "<group>"; };
 		AE68D97275159979AFCFDBD7 /* CCSEAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCSEAApp.swift; sourceTree = "<group>"; };
 		BCAB7F07906B43AC96377866 /* UsageModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageModelTests.swift; sourceTree = "<group>"; };
 		C9D7ADADAAC93C7CE02551CC /* UsageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageServiceTests.swift; sourceTree = "<group>"; };
 		D10E4CF57898A781A23DF4E1 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
 		D122CBC644AD8D4119A35CA0 /* CCSEATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCSEATests.swift; sourceTree = "<group>"; };
+		E24933F57EA1F9F7662BB352 /* UsageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -55,6 +59,8 @@
 				339A280DD9962A398E6BABFC /* Info.plist */,
 				412A626A832214BB9A4C49B0 /* KeychainService.swift */,
 				2CC616FC81286148F1C8E361 /* MenuBarIcon.swift */,
+				9AE327A686683DA41B6C6805 /* PopoverView.swift */,
+				E24933F57EA1F9F7662BB352 /* UsageCardView.swift */,
 				93BEA249FF73F8B054DD8096 /* UsageModel.swift */,
 				9FC7365E8F7F561B45540088 /* UsageService.swift */,
 				1667981325DA88DD825890FE /* UsageViewModel.swift */,
@@ -166,6 +172,8 @@
 				A8AB6BC2BA39D4147ACD1C2B /* CCSEAApp.swift in Sources */,
 				53AFDF84B8831E3C24AEEE91 /* KeychainService.swift in Sources */,
 				591D10D6C7921D138EEBA296 /* MenuBarIcon.swift in Sources */,
+				26CD93BF4429BE193B48D20F /* PopoverView.swift in Sources */,
+				5A66905DFD37EE54C1301953 /* UsageCardView.swift in Sources */,
 				303FCEB3EE61F906708C4071 /* UsageModel.swift in Sources */,
 				CDC7126B87B0999353A6A7E3 /* UsageService.swift in Sources */,
 				051CFE6C8E072F0650576E23 /* UsageViewModel.swift in Sources */,
