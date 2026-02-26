@@ -1,5 +1,5 @@
 import XCTest
-@testable import CCSEA
+@testable import ClaudeWatch
 
 final class UsageModelTests: XCTestCase {
 

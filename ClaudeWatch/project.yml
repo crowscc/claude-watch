@@ -1,0 +1,33 @@
+name: ClaudeWatch
+options:
+  bundleIdPrefix: com.claudewatch
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "16.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+targets:
+  ClaudeWatch:
+    type: application
+    platform: macOS
+    sources:
+      - ClaudeWatch
+    settings:
+      base:
+        INFOPLIST_FILE: ClaudeWatch/Info.plist
+        CODE_SIGN_ENTITLEMENTS: ClaudeWatch/ClaudeWatch.entitlements
+        PRODUCT_BUNDLE_IDENTIFIER: com.claudewatch.app
+        PRODUCT_NAME: ClaudeWatch
+  ClaudeWatchTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - ClaudeWatchTests
+    dependencies:
+      - target: ClaudeWatch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.claudewatch.tests
+        GENERATE_INFOPLIST_FILE: YES
