@@ -1,3 +1,4 @@
+import ServiceManagement
 import SwiftUI
 
 struct PopoverView: View {
@@ -66,6 +67,29 @@ struct PopoverView: View {
                 .onChange(of: viewModel.refreshInterval) {
                     viewModel.scheduleTimer()
                 }
+            }
+
+            HStack {
+                Image(systemName: "rocket")
+                    .foregroundStyle(.secondary)
+                Text("开机自启")
+                Spacer()
+                Toggle("", isOn: $launchAtLogin)
+                    .labelsHidden()
+                    .onChange(of: launchAtLogin) {
+                        do {
+                            if launchAtLogin {
+                                try SMAppService.mainApp.register()
+                            } else {
+                                try SMAppService.mainApp.unregister()
+                            }
+                        } catch {
+                            launchAtLogin = !launchAtLogin
+                        }
+                    }
+            }
+            .onAppear {
+                launchAtLogin = (SMAppService.mainApp.status == .enabled)
             }
 
             Divider()
