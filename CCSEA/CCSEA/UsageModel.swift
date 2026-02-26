@@ -23,14 +23,19 @@ struct UsageWindow: Codable {
         let interval = resetsAt.timeIntervalSinceNow
         guard interval > 0 else { return "即将重置" }
 
-        let hours = Int(interval) / 3600
-        let minutes = (Int(interval) % 3600) / 60
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "zh_CN")
 
-        if hours > 0 {
-            return "\(hours) 小时 \(minutes) 分钟后重置"
+        // 判断是否是今天
+        if Calendar.current.isDateInToday(resetsAt) {
+            formatter.dateFormat = "今天 HH:mm"
+        } else if Calendar.current.isDateInTomorrow(resetsAt) {
+            formatter.dateFormat = "'明天' HH:mm"
         } else {
-            return "\(minutes) 分钟后重置"
+            formatter.dateFormat = "M月d日 HH:mm"
         }
+
+        return "\(formatter.string(from: resetsAt)) 重置"
     }
 }
 

@@ -1,5 +1,4 @@
 import Foundation
-import Security
 
 enum KeychainService {
 
@@ -7,35 +6,42 @@ enum KeychainService {
         case notFound
         case invalidData
         case missingToken
-        case securityError(OSStatus)
+        case commandFailed(String)
 
         var errorDescription: String? {
             switch self {
             case .notFound: return "Keychain 中未找到 Claude Code 凭据"
             case .invalidData: return "凭据数据格式无效"
             case .missingToken: return "凭据中缺少 accessToken"
-            case .securityError(let status): return "Keychain 错误: \(status)"
+            case .commandFailed(let msg): return "Keychain 读取失败: \(msg)"
             }
         }
     }
 
     static func getAccessToken() throws -> String {
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrService as String: "Claude Code-credentials",
-            kSecReturnData as String: true,
-            kSecMatchLimit as String: kSecMatchLimitOne
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/security")
+        process.arguments = [
+            "find-generic-password",
+            "-s", "Claude Code-credentials",
+            "-a", NSUserName(),
+            "-w"
         ]
 
-        var result: AnyObject?
-        let status = SecItemCopyMatching(query as CFDictionary, &result)
+        let pipe = Pipe()
+        process.standardOutput = pipe
+        process.standardError = Pipe()
 
-        guard status == errSecSuccess else {
-            throw KeychainError.securityError(status)
+        try process.run()
+        process.waitUntilExit()
+
+        guard process.terminationStatus == 0 else {
+            throw KeychainError.notFound
         }
 
-        guard let data = result as? Data,
-              let jsonString = String(data: data, encoding: .utf8) else {
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        guard let jsonString = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines),
+              !jsonString.isEmpty else {
             throw KeychainError.invalidData
         }
 
