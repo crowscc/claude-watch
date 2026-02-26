@@ -1,7 +1,7 @@
 import XCTest
-@testable import CCSEA
+@testable import ClaudeWatch
 
-final class CCSEATests: XCTestCase {
+final class ClaudeWatchTests: XCTestCase {
     func testExample() throws {
         XCTAssertTrue(true)
     }

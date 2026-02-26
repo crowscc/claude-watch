@@ -1,4 +1,4 @@
-# CCSEA
+# Claude Watch
 
 macOS 菜单栏应用，实时显示 Claude Code 订阅配额使用情况。
 
@@ -24,16 +24,16 @@ macOS 菜单栏应用，实时显示 Claude Code 订阅配额使用情况。
 # 依赖：Xcode 16+, xcodegen
 brew install xcodegen
 
-git clone https://github.com/crowscc/ccsea.git
-cd ccsea/CCSEA
+git clone https://github.com/crowscc/claude-watch.git
+cd claude-watch/ClaudeWatch
 xcodegen generate
-xcodebuild -scheme CCSEA -configuration Release build CONFIGURATION_BUILD_DIR=./build/Release
+xcodebuild -scheme ClaudeWatch -configuration Release build CONFIGURATION_BUILD_DIR=./build/Release
 
 # 启动
-open ./build/Release/CCSEA.app
+open ./build/Release/Claude\ Watch.app
 
 # (可选) 复制到 Applications
-cp -r ./build/Release/CCSEA.app /Applications/
+cp -r ./build/Release/Claude\ Watch.app /Applications/
 ```
 
 ### 前置条件

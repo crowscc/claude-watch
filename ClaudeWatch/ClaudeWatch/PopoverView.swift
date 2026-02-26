@@ -94,7 +94,7 @@ struct PopoverView: View {
 
             Divider()
 
-            Button("退出 CCSEA") {
+            Button("退出 Claude Watch") {
                 NSApplication.shared.terminate(nil)
             }
         }
