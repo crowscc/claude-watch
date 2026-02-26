@@ -7,32 +7,17 @@ final class UsageViewModel: ObservableObject {
     enum State: Equatable {
         case idle
         case loading
-        case loaded(UsageResponse)
+        case loaded
         case error(String)
-
-        static func == (lhs: State, rhs: State) -> Bool {
-            switch (lhs, rhs) {
-            case (.idle, .idle), (.loading, .loading): return true
-            case (.loaded(let a), .loaded(let b)):
-                return a.fiveHour.utilization == b.fiveHour.utilization
-                    && a.sevenDay.utilization == b.sevenDay.utilization
-            case (.error(let a), .error(let b)): return a == b
-            default: return false
-            }
-        }
     }
 
     @Published var state: State = .idle
+    @Published var usage: UsageResponse?
     @Published var lastUpdated: Date?
 
     @AppStorage("refreshInterval") var refreshInterval: Double = 120
 
     private var timer: Timer?
-
-    var usage: UsageResponse? {
-        if case .loaded(let u) = state { return u }
-        return nil
-    }
 
     var isTokenExpired: Bool {
         if case .error(let msg) = state { return msg.contains("token") || msg.contains("登录") }
@@ -60,14 +45,19 @@ final class UsageViewModel: ObservableObject {
 
     func fetch() {
         Task {
+            // 不清空 usage，保留缓存
             state = .loading
             do {
                 let response = try await UsageService.fetch()
-                state = .loaded(response)
+                usage = response
+                state = .loaded
                 lastUpdated = Date()
             } catch {
+                // 有缓存时保持显示，无缓存才显示错误
                 if usage == nil {
                     state = .error(error.localizedDescription)
+                } else {
+                    state = .loaded
                 }
             }
         }

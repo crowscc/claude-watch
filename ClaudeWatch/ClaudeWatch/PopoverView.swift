@@ -28,18 +28,13 @@ struct PopoverView: View {
             }
 
             // 内容区
-            switch viewModel.state {
-            case .idle, .loading:
-                if let usage = viewModel.usage {
-                    usageCards(usage)
-                } else {
-                    ProgressView()
-                        .frame(maxWidth: .infinity, alignment: .center)
-                }
-            case .loaded(let usage):
+            if let usage = viewModel.usage {
                 usageCards(usage)
-            case .error(let message):
+            } else if case .error(let message) = viewModel.state {
                 errorView(message)
+            } else {
+                ProgressView()
+                    .frame(maxWidth: .infinity, alignment: .center)
             }
 
             // 上次更新

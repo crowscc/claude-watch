@@ -31,7 +31,7 @@ struct UsageCardView: View {
 
     var body: some View {
         GroupBox {
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 6) {
                 HStack {
                     Text(title)
                         .font(.headline)
@@ -42,16 +42,26 @@ struct UsageCardView: View {
                         .foregroundStyle(tintColor)
                 }
 
-                // 用量进度条
-                ProgressView(value: window.utilization, total: 100)
-                    .tint(tintColor)
+                // 双进度条
+                VStack(alignment: .leading, spacing: 3) {
+                    // 用量进度条
+                    HStack(spacing: 4) {
+                        ProgressView(value: window.utilization, total: 100)
+                            .tint(tintColor)
+                        Text("用量")
+                            .font(.system(size: 9))
+                            .foregroundStyle(.secondary)
+                    }
 
-                // 时间进度标记条
-                PaceIndicator(
-                    utilization: window.utilization,
-                    timeProgress: timeProgress,
-                    tintColor: tintColor
-                )
+                    // 时间进度条
+                    HStack(spacing: 4) {
+                        ProgressView(value: timeProgress, total: 100)
+                            .tint(.secondary)
+                        Text("时间")
+                            .font(.system(size: 9))
+                            .foregroundStyle(.secondary)
+                    }
+                }
 
                 // 节奏状态 + 重置时间
                 HStack {
@@ -81,51 +91,5 @@ struct UsageCardView: View {
                 .font(.caption)
                 .foregroundStyle(.green)
         }
-    }
-}
-
-/// 对比指示条：显示用量位置 ▲ 和时间位置 △
-struct PaceIndicator: View {
-    let utilization: Double
-    let timeProgress: Double
-    let tintColor: Color
-
-    var body: some View {
-        GeometryReader { geo in
-            let width = geo.size.width
-            let usageX = width * min(utilization, 100) / 100
-            let timeX = width * min(timeProgress, 100) / 100
-
-            ZStack(alignment: .leading) {
-                // 底线
-                Rectangle()
-                    .fill(Color.secondary.opacity(0.2))
-                    .frame(height: 2)
-
-                // 时间进度标记 △（空心三角）
-                Triangle()
-                    .stroke(Color.secondary, lineWidth: 1)
-                    .frame(width: 6, height: 5)
-                    .offset(x: timeX - 3, y: -1)
-
-                // 用量标记 ▲（实心三角）
-                Triangle()
-                    .fill(tintColor)
-                    .frame(width: 6, height: 5)
-                    .offset(x: usageX - 3, y: -1)
-            }
-        }
-        .frame(height: 6)
-    }
-}
-
-struct Triangle: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        path.move(to: CGPoint(x: rect.midX, y: rect.minY))
-        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
-        path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
-        path.closeSubpath()
-        return path
     }
 }
