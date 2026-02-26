@@ -1,0 +1,32 @@
+name: CCSEA
+options:
+  bundleIdPrefix: com.ccsea
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "16.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+targets:
+  CCSEA:
+    type: application
+    platform: macOS
+    sources:
+      - CCSEA
+    settings:
+      base:
+        INFOPLIST_FILE: CCSEA/Info.plist
+        CODE_SIGN_ENTITLEMENTS: CCSEA/CCSEA.entitlements
+        PRODUCT_BUNDLE_IDENTIFIER: com.ccsea.app
+        PRODUCT_NAME: CCSEA
+  CCSEATests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - CCSEATests
+    dependencies:
+      - target: CCSEA
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ccsea.tests
