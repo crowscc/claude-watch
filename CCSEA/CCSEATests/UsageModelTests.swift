@@ -31,10 +31,16 @@ final class UsageModelTests: XCTestCase {
     }
 
     func testTimeRemainingFormatting() {
-        let future = Date().addingTimeInterval(3600 + 660) // 1h 11min
+        let future = Date().addingTimeInterval(3600 + 660) // 1h 11min from now
         let window = UsageWindow(utilization: 23.0, resetsAt: future)
         let remaining = window.timeRemainingText
-        XCTAssertTrue(remaining.contains("1"))
-        XCTAssertTrue(remaining.contains("小时") || remaining.contains("h"))
+        XCTAssertTrue(remaining.contains("重置"))
+        XCTAssertTrue(remaining.contains(":")) // 包含具体时间如 "HH:mm"
+    }
+
+    func testTimeRemainingExpired() {
+        let past = Date().addingTimeInterval(-60)
+        let window = UsageWindow(utilization: 23.0, resetsAt: past)
+        XCTAssertEqual(window.timeRemainingText, "即将重置")
     }
 }
