@@ -11,6 +11,7 @@
 		303FCEB3EE61F906708C4071 /* UsageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BEA249FF73F8B054DD8096 /* UsageModel.swift */; };
 		53AFDF84B8831E3C24AEEE91 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A626A832214BB9A4C49B0 /* KeychainService.swift */; };
 		54A627C92B4E922F5ABE9844 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E4CF57898A781A23DF4E1 /* KeychainServiceTests.swift */; };
+		591D10D6C7921D138EEBA296 /* MenuBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC616FC81286148F1C8E361 /* MenuBarIcon.swift */; };
 		65DC70695F213FE3C8ADA37B /* UsageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D7ADADAAC93C7CE02551CC /* UsageServiceTests.swift */; };
 		7BF8D1E82036E5E1AED75751 /* UsageModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAB7F07906B43AC96377866 /* UsageModelTests.swift */; };
 		A63AC7E671F9BB77428F9623 /* CCSEATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D122CBC644AD8D4119A35CA0 /* CCSEATests.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		11AB6790D9E74470FE8BE36A /* CCSEA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCSEA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1667981325DA88DD825890FE /* UsageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageViewModel.swift; sourceTree = "<group>"; };
+		2CC616FC81286148F1C8E361 /* MenuBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarIcon.swift; sourceTree = "<group>"; };
 		3099BD9087C7EEC4020E029B /* CCSEATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCSEATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		339A280DD9962A398E6BABFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		412A626A832214BB9A4C49B0 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 				AE68D97275159979AFCFDBD7 /* CCSEAApp.swift */,
 				339A280DD9962A398E6BABFC /* Info.plist */,
 				412A626A832214BB9A4C49B0 /* KeychainService.swift */,
+				2CC616FC81286148F1C8E361 /* MenuBarIcon.swift */,
 				93BEA249FF73F8B054DD8096 /* UsageModel.swift */,
 				9FC7365E8F7F561B45540088 /* UsageService.swift */,
 				1667981325DA88DD825890FE /* UsageViewModel.swift */,
@@ -162,6 +165,7 @@
 			files = (
 				A8AB6BC2BA39D4147ACD1C2B /* CCSEAApp.swift in Sources */,
 				53AFDF84B8831E3C24AEEE91 /* KeychainService.swift in Sources */,
+				591D10D6C7921D138EEBA296 /* MenuBarIcon.swift in Sources */,
 				303FCEB3EE61F906708C4071 /* UsageModel.swift in Sources */,
 				CDC7126B87B0999353A6A7E3 /* UsageService.swift in Sources */,
 				051CFE6C8E072F0650576E23 /* UsageViewModel.swift in Sources */,
