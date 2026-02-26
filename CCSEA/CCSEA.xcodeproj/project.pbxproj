@@ -10,7 +10,9 @@
 		303FCEB3EE61F906708C4071 /* UsageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BEA249FF73F8B054DD8096 /* UsageModel.swift */; };
 		53AFDF84B8831E3C24AEEE91 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A626A832214BB9A4C49B0 /* KeychainService.swift */; };
 		54A627C92B4E922F5ABE9844 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E4CF57898A781A23DF4E1 /* KeychainServiceTests.swift */; };
+		6A1B2C3D4E5F60718293A4B5 /* UsageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C3D4E5F60718293A4B5C6 /* UsageService.swift */; };
 		7BF8D1E82036E5E1AED75751 /* UsageModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAB7F07906B43AC96377866 /* UsageModelTests.swift */; };
+		8C3D4E5F60718293A4B5C6D7 /* UsageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E5F60718293A4B5C6D7E8 /* UsageServiceTests.swift */; };
 		A63AC7E671F9BB77428F9623 /* CCSEATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D122CBC644AD8D4119A35CA0 /* CCSEATests.swift */; };
 		A8AB6BC2BA39D4147ACD1C2B /* CCSEAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE68D97275159979AFCFDBD7 /* CCSEAApp.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +37,8 @@
 		AE68D97275159979AFCFDBD7 /* CCSEAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCSEAApp.swift; sourceTree = "<group>"; };
 		BCAB7F07906B43AC96377866 /* UsageModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageModelTests.swift; sourceTree = "<group>"; };
 		D10E4CF57898A781A23DF4E1 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
+		7B2C3D4E5F60718293A4B5C6 /* UsageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageService.swift; sourceTree = "<group>"; };
+		9D4E5F60718293A4B5C6D7E8 /* UsageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageServiceTests.swift; sourceTree = "<group>"; };
 		D122CBC644AD8D4119A35CA0 /* CCSEATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCSEATests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +51,7 @@
 				339A280DD9962A398E6BABFC /* Info.plist */,
 				412A626A832214BB9A4C49B0 /* KeychainService.swift */,
 				93BEA249FF73F8B054DD8096 /* UsageModel.swift */,
+				7B2C3D4E5F60718293A4B5C6 /* UsageService.swift */,
 			);
 			path = CCSEA;
 			sourceTree = "<group>";
@@ -75,6 +80,7 @@
 				D122CBC644AD8D4119A35CA0 /* CCSEATests.swift */,
 				D10E4CF57898A781A23DF4E1 /* KeychainServiceTests.swift */,
 				BCAB7F07906B43AC96377866 /* UsageModelTests.swift */,
+				9D4E5F60718293A4B5C6D7E8 /* UsageServiceTests.swift */,
 			);
 			path = CCSEATests;
 			sourceTree = "<group>";
@@ -154,6 +160,7 @@
 				A8AB6BC2BA39D4147ACD1C2B /* CCSEAApp.swift in Sources */,
 				53AFDF84B8831E3C24AEEE91 /* KeychainService.swift in Sources */,
 				303FCEB3EE61F906708C4071 /* UsageModel.swift in Sources */,
+				6A1B2C3D4E5F60718293A4B5 /* UsageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +171,7 @@
 				A63AC7E671F9BB77428F9623 /* CCSEATests.swift in Sources */,
 				54A627C92B4E922F5ABE9844 /* KeychainServiceTests.swift in Sources */,
 				7BF8D1E82036E5E1AED75751 /* UsageModelTests.swift in Sources */,
+				8C3D4E5F60718293A4B5C6D7 /* UsageServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
