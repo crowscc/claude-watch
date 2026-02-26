@@ -6,11 +6,14 @@ macOS 菜单栏应用，实时显示 Claude Code 订阅配额使用情况。
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+<img src="assets/screenshot.png" width="360" alt="Claude Watch Screenshot">
+
 ## 功能
 
 - **菜单栏动态图标** — 圆弧仪表盘实时反映用量，>80% 显示警告
 - **5h 会话配额** — 当前会话用量百分比 + 具体重置时间
 - **7d 每周配额** — 每周限额用量百分比 + 具体重置时间
+- **节奏对比** — 用量 vs 时间双进度条，显示超速/正常/余量状态
 - **颜色指示** — 绿(<50%) / 黄(50-80%) / 红(>80%)
 - **可调刷新频率** — 30秒 / 1分钟 / 2分钟(默认) / 5分钟
 - **开机自启** — 一键开关
