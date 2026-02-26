@@ -43,4 +43,42 @@ final class UsageModelTests: XCTestCase {
         let window = UsageWindow(utilization: 23.0, resetsAt: past)
         XCTAssertEqual(window.timeRemainingText, "即将重置")
     }
+
+    // MARK: - Pace Gap 测试
+
+    func testTimeProgressHalfway() {
+        // 5h 窗口，剩余 2.5h = 过了一半
+        let window = UsageWindow(utilization: 50.0, resetsAt: Date().addingTimeInterval(2.5 * 3600))
+        let progress = window.timeProgress(windowDuration: 5 * 3600)
+        XCTAssertEqual(progress, 50.0, accuracy: 1.0)
+    }
+
+    func testPaceGapAhead() {
+        // 用了 60%，时间过了 40% → 超速 +20%
+        let window = UsageWindow(utilization: 60.0, resetsAt: Date().addingTimeInterval(3 * 3600))
+        let gap = window.paceGap(windowDuration: 5 * 3600)
+        XCTAssertEqual(gap, 20.0, accuracy: 1.0)
+    }
+
+    func testPaceGapBehind() {
+        // 用了 20%，时间过了 60% → 余量 -40%
+        let window = UsageWindow(utilization: 20.0, resetsAt: Date().addingTimeInterval(2 * 3600))
+        let gap = window.paceGap(windowDuration: 5 * 3600)
+        XCTAssertEqual(gap, -40.0, accuracy: 1.0)
+    }
+
+    func testPaceStatusNormal() {
+        let status = PaceStatus.from(gap: 3.0)
+        if case .normal = status {} else { XCTFail("Expected .normal") }
+    }
+
+    func testPaceStatusAhead() {
+        let status = PaceStatus.from(gap: 15.0)
+        if case .ahead(let g) = status { XCTAssertEqual(g, 15.0) } else { XCTFail("Expected .ahead") }
+    }
+
+    func testPaceStatusBehind() {
+        let status = PaceStatus.from(gap: -20.0)
+        if case .behind(let g) = status { XCTAssertEqual(g, -20.0) } else { XCTFail("Expected .behind") }
+    }
 }

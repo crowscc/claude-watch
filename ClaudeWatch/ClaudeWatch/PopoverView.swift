@@ -17,7 +17,7 @@ struct PopoverView: View {
         VStack(alignment: .leading, spacing: 12) {
             // 标题
             HStack {
-                Text("Claude Code Usage")
+                Text("Claude Watch")
                     .font(.headline)
                 Spacer()
                 Button(action: { viewModel.fetch() }) {
@@ -104,8 +104,8 @@ struct PopoverView: View {
 
     @ViewBuilder
     private func usageCards(_ usage: UsageResponse) -> some View {
-        UsageCardView(title: "当前会话 (5h)", window: usage.fiveHour)
-        UsageCardView(title: "每周限额 (7d)", window: usage.sevenDay)
+        UsageCardView(title: "当前会话 (5h)", window: usage.fiveHour, windowDuration: 5 * 3600)
+        UsageCardView(title: "每周限额 (7d)", window: usage.sevenDay, windowDuration: 7 * 24 * 3600)
     }
 
     @ViewBuilder

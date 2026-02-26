@@ -26,7 +26,6 @@ struct UsageWindow: Codable {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "zh_CN")
 
-        // 判断是否是今天
         if Calendar.current.isDateInToday(resetsAt) {
             formatter.dateFormat = "今天 HH:mm"
         } else if Calendar.current.isDateInTomorrow(resetsAt) {
@@ -36,6 +35,32 @@ struct UsageWindow: Codable {
         }
 
         return "\(formatter.string(from: resetsAt)) 重置"
+    }
+
+    /// 计算时间进度百分比（窗口已过去多少）
+    func timeProgress(windowDuration: TimeInterval) -> Double {
+        let remaining = resetsAt.timeIntervalSinceNow
+        guard remaining > 0, windowDuration > 0 else { return 100.0 }
+        let elapsed = windowDuration - remaining
+        return min(max(elapsed / windowDuration * 100.0, 0), 100)
+    }
+
+    /// 计算 gap = 用量进度 - 时间进度
+    /// 正数表示超速，负数表示余量
+    func paceGap(windowDuration: TimeInterval) -> Double {
+        return utilization - timeProgress(windowDuration: windowDuration)
+    }
+}
+
+enum PaceStatus {
+    case ahead(Double)   // 超速，gap > 5%
+    case normal          // 持平，gap ±5% 以内
+    case behind(Double)  // 余量，gap < -5%
+
+    static func from(gap: Double) -> PaceStatus {
+        if gap > 5 { return .ahead(gap) }
+        if gap < -5 { return .behind(gap) }
+        return .normal
     }
 }
 
