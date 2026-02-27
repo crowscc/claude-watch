@@ -25,10 +25,14 @@ struct UsageWindow: Codable {
 
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "zh_CN")
+        formatter.timeZone = TimeZone.current
 
-        if Calendar.current.isDateInToday(resetsAt) {
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone.current
+
+        if calendar.isDateInToday(resetsAt) {
             formatter.dateFormat = "今天 HH:mm"
-        } else if Calendar.current.isDateInTomorrow(resetsAt) {
+        } else if calendar.isDateInTomorrow(resetsAt) {
             formatter.dateFormat = "'明天' HH:mm"
         } else {
             formatter.dateFormat = "M月d日 HH:mm"
